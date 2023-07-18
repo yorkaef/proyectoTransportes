@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b6fe69ca-5b93-4efb-85ba-65eca2da6da3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="152"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventapasaje.`fecha` AS ventapasaje_fecha,
+     ventapasaje.`precio` AS ventapasaje_precio,
+     ventapasaje.`asiento` AS ventapasaje_asiento,
+     ciudaddestino.`nombre` AS ciudaddestino_nombre,
+     ciudaddestino.`provincia` AS ciudaddestino_provincia,
+     ciudadorigen_A.`nombre` AS ciudadorigen_A_nombre,
+     ciudadorigen_A.`provincia` AS ciudadorigen_A_provincia,
+     pasaje.`horasalida` AS pasaje_horasalida,
+     pasaje.`fechasalida` AS pasaje_fechasalida,
+     pasajero.`dni` AS pasajero_dni,
+     pasajero.`nombre` AS pasajero_nombre,
+     pasajero.`apellidoMaterno` AS pasajero_apellidoMaterno,
+     pasajero.`apellidoPaterno` AS pasajero_apellidoPaterno,
+     categoria.`nombre` AS categoria_nombre,
+     ventapasaje.`ventapasajeid` AS ventapasaje_ventapasajeid
+FROM
+     `pasaje` pasaje INNER JOIN `ventapasaje` ventapasaje ON pasaje.`pasajeid` = ventapasaje.`pasajeid`
+     INNER JOIN `pasajero` pasajero ON ventapasaje.`dni` = pasajero.`dni`,
+     `ciudaddestino` ciudaddestino,
+     `ciudadorigen` ciudadorigen_A,
+     `categoria` categoria 
+where 
+ventapasaje.`ventapasajeid` = $P{id}]]>
+	</queryString>
+	<field name="ventapasaje_fecha" class="java.sql.Date"/>
+	<field name="ventapasaje_precio" class="java.math.BigDecimal"/>
+	<field name="ventapasaje_asiento" class="java.lang.Integer"/>
+	<field name="ciudaddestino_nombre" class="java.lang.String"/>
+	<field name="ciudaddestino_provincia" class="java.lang.String"/>
+	<field name="ciudadorigen_A_nombre" class="java.lang.String"/>
+	<field name="ciudadorigen_A_provincia" class="java.lang.String"/>
+	<field name="pasaje_horasalida" class="java.lang.String"/>
+	<field name="pasaje_fechasalida" class="java.sql.Date"/>
+	<field name="pasajero_dni" class="java.lang.String"/>
+	<field name="pasajero_nombre" class="java.lang.String"/>
+	<field name="pasajero_apellidoMaterno" class="java.lang.String"/>
+	<field name="pasajero_apellidoPaterno" class="java.lang.String"/>
+	<field name="categoria_nombre" class="java.lang.String"/>
+	<field name="ventapasaje_ventapasajeid" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="773" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="47fa4f67-d243-40cf-bd40-19f5256aa9bb" style="Column header" x="17" y="241" width="67" height="15"/>
+				<textElement/>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0493ccdf-c5de-4b46-96cd-096da45b52bd" style="Column header" x="294" y="241" width="56" height="15"/>
+				<textElement/>
+				<text><![CDATA[Asiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0b5d664a-4589-48d7-8705-f092118cf702" style="Column header" x="17" y="288" width="49" height="15"/>
+				<textElement/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40c7f0ac-e669-42b8-883c-90c222120514" style="Column header" x="13" y="379" width="120" height="15"/>
+				<textElement/>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7fd77742-6175-4919-8863-1a7170e13a9f" style="Column header" x="17" y="439" width="121" height="15"/>
+				<textElement/>
+				<text><![CDATA[Apellido Paterno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6cd0eea9-f2f7-4586-b386-0b25332bbef1" style="Column header" x="17" y="506" width="113" height="15"/>
+				<textElement/>
+				<text><![CDATA[Apellido Materno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3a027a8c-f5dc-4e8f-866c-e036d1bd6dcf" style="Column header" x="288" y="580" width="95" height="15"/>
+				<textElement/>
+				<text><![CDATA[Provincia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4966a958-b749-483b-9b57-e12cab78a504" style="Column header" x="291" y="640" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[Provincia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="54507e8d-e408-41c3-b91d-1e0b8a8bd41e" style="Column header" x="17" y="580" width="96" height="15"/>
+				<textElement/>
+				<text><![CDATA[Ciudad Origen:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f88b6ac-e613-4d39-ab0f-c5cdb8f83383" style="Column header" x="20" y="640" width="95" height="15"/>
+				<textElement/>
+				<text><![CDATA[Ciudad Destino:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40fc1d4e-8adb-4aa8-918c-791215a26c1c" style="Column header" x="294" y="288" width="90" height="15"/>
+				<textElement/>
+				<text><![CDATA[Categoria:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="104e9941-4d35-43b7-897c-837b2774dcaa" style="Column header" x="291" y="740" width="110" height="15"/>
+				<textElement/>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7d1c88f9-7ce4-4088-973a-7e18aa6b2a24" x="420" y="735" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventapasaje_precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f1b7d7eb-16a5-4c6c-ac4f-738237378c12" x="174" y="379" width="154" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasajero_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0f96deee-ab19-4237-a0e6-1c33554974b0" x="174" y="434" width="154" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasajero_apellidoPaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b03b29a-356c-4bf8-811b-1d5f4f332ec5" x="174" y="501" width="154" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasajero_apellidoMaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="345b202f-3713-4781-85f6-f25e5521cfb4" x="394" y="236" width="126" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventapasaje_asiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="39aa5136-6089-4633-9695-3eae9f6d0ad0" x="394" y="283" width="126" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{categoria_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="69e5c98e-53e9-4903-a0c7-d708f3e04256" x="110" y="288" width="117" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasaje_horasalida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="76e285b6-3f5f-4611-9e7a-87db2c3b4edb" x="110" y="236" width="117" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pasaje_fechasalida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="40bc81d2-1d03-4488-a109-bc15750c99e9" x="127" y="575" width="120" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudadorigen_A_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5f163cb3-8aff-44ae-9885-daa218cdf8cc" x="130" y="635" width="117" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudaddestino_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4c1c2a01-4682-42c0-9edc-31c4c485bf94" x="401" y="575" width="119" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudadorigen_A_provincia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="abb3f77a-5530-4119-aca4-4c8aa0f97af5" x="401" y="635" width="119" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudaddestino_provincia}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement uuid="94ab5a26-ebb7-4322-8513-630ef9201450" mode="Opaque" x="0" y="0" width="555" height="207" forecolor="#006699" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="22188f89-0f01-4cdf-8f57-290ff9794f76" style="Title" x="0" y="64" width="263" height="33" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[BOLETO DE VIAJE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b58b0111-c014-4522-9417-cbd7b2882db0" style="SubTitle" x="3" y="118" width="174" height="22" forecolor="#FFFFFF"/>
+					<textElement/>
+					<text><![CDATA[R.U.C.20132272418]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="b58b0111-c014-4522-9417-cbd7b2882db0" style="SubTitle" x="192" y="118" width="174" height="22" forecolor="#FF0033"/>
+					<textElement/>
+					<text><![CDATA[220 N° 0082502]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="94ab5a26-ebb7-4322-8513-630ef9201450" mode="Opaque" x="366" y="368" width="165" height="153" forecolor="#006699" backcolor="#006699"/>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

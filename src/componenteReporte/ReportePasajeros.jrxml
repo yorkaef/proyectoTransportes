@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65cb380c-4385-4ed5-b3da-b9f2af9dc230">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="b412bf4b-f809-4fea-aa92-f7e1235ef38e"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pasajero.`nombre` AS pasajero_nombre,
+     pasajero.`apellidoMaterno` AS pasajero_apellidoMaterno,
+     pasajero.`apellidoPaterno` AS pasajero_apellidoPaterno,
+     pasajero.`fechaNacimiento` AS pasajero_fechaNacimiento,
+     pasajero.`edad` AS pasajero_edad,
+     pasajero.`dni` AS pasajero_dni
+FROM
+     `pasajero` pasajero]]>
+	</queryString>
+	<field name="pasajero_nombre" class="java.lang.String"/>
+	<field name="pasajero_apellidoMaterno" class="java.lang.String"/>
+	<field name="pasajero_apellidoPaterno" class="java.lang.String"/>
+	<field name="pasajero_fechaNacimiento" class="java.sql.Date"/>
+	<field name="pasajero_edad" class="java.lang.Integer"/>
+	<field name="pasajero_dni" class="java.lang.String"/>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement uuid="1d444fe2-c711-41b1-8f1a-2d1e99d5f168" mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="215c7507-3a29-432e-8a43-803f49f941db" style="Title" x="58" y="0" width="751" height="65"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte de Pasajeros Pajeros]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement uuid="4c9c85d5-579d-4307-8577-6894f307d932" x="227" y="0" width="575" height="14"/>
+				<staticText>
+					<reportElement uuid="5977c377-0bd7-4557-9cce-5fc10eef7f5d" style="Column header" positionType="Float" x="0" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Nombre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a8f17bc3-d040-457a-9beb-75cd1ff9f357" style="Column header" positionType="Float" x="95" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Apellido Materno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="436a3271-262e-41c0-a5a5-f93836bdc51e" style="Column header" positionType="Float" x="190" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Apellido Paterno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="c4328765-b2b5-4266-beee-4495abb5e8c0" style="Column header" positionType="Float" x="285" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[FechaNacimiento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="fb6418ee-742f-45af-a341-c4ffcbfc1e34" style="Column header" positionType="Float" x="380" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Edad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="e87fe7f2-da79-4a58-ad11-6afe012d6be1" style="Column header" positionType="Float" x="475" y="0" width="95" height="14" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[DNI]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement uuid="f14a1f7d-e6f9-4962-ba33-2aaff152107b" positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1"/>
+			</line>
+			<frame>
+				<reportElement uuid="6c665489-a76f-40c1-b60f-fe109fa151d1" x="227" y="0" width="575" height="14"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="01984eb6-6cc6-43a4-ad18-6e00d75fbaae" style="Detail" positionType="Float" x="0" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="c472fdcd-80c0-4877-8485-52f8228cb09c" style="Detail" positionType="Float" x="95" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_apellidoMaterno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="9ca62af3-c387-46fa-8ce5-d5e707636c7d" style="Detail" positionType="Float" x="190" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_apellidoPaterno}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="0629d331-8f59-4ffb-adf3-65c3e92d95d9" style="Detail" positionType="Float" x="285" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_fechaNacimiento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="8c33430c-d341-4c2a-a028-5f096fde2834" style="Detail" positionType="Float" x="380" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_edad}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="5ca54a18-cddf-46e5-80a1-36825dedaf99" style="Detail" positionType="Float" x="475" y="0" width="95" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pasajero_dni}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="1f88986d-a18c-42d1-a088-8c199bcdc817" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement uuid="47b843bb-dacf-41ef-a68d-88c7a30734bf" mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="0e82a048-0fff-4d5b-a4a7-f90df7d4cb28" style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="9a507df9-2371-40c1-8831-7043ef46ce8b" style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="30a819cc-810e-435e-896e-a63632c0af22" style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
