@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import transporte.FormLogin;
+import transporte.FormRegistro;
 
 
 public class consultas {
@@ -27,7 +29,16 @@ public class consultas {
             System.out.println(e);
         }
     }
+    private FormLogin ventanaLogin;
 
+        public consultas(FormLogin ventanaLogin) {
+            this.ventanaLogin = ventanaLogin;
+        }
+    private FormRegistro ventanaRegistro;
+
+    public consultas(FormRegistro ventanaRegistro) {
+        this.ventanaRegistro = ventanaRegistro;
+    }
 public void consultarUsuario(String user, String pass) {
     Conexion db = new Conexion();
     String sql = "SELECT nombre, clave FROM usuarios WHERE nombre = ? LIMIT 1";
@@ -41,6 +52,7 @@ public void consultarUsuario(String user, String pass) {
             if (pass.equals(passCorrecto)) {
                 frmPrincipal principal = new frmPrincipal();
                 principal.setVisible(true);
+                ventanaLogin.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
             }
@@ -51,4 +63,6 @@ public void consultarUsuario(String user, String pass) {
         JOptionPane.showMessageDialog(null, "Error al consultar usuario: " + e.getMessage());
     }
 }
+
+
 }

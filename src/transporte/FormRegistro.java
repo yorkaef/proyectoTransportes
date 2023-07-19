@@ -174,7 +174,7 @@ public class FormRegistro extends javax.swing.JFrame {
 
     private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
         // TODO add your handling code here:
-        consultas con = new consultas();
+        consultas con = new consultas(this);
         try {
             con.guardarUsuario(jTextNombre.getText(), jTextClave.getText());
         } catch (SQLException ex) {

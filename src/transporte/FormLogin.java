@@ -226,8 +226,8 @@ public class FormLogin extends javax.swing.JFrame {
 
     private void btnEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntryActionPerformed
         // TODO add your handling code here:
-        consultas con = new consultas();
-        con.consultarUsuario(jTextUser.getText(), jTextPass.getText());
+          consultas con = new consultas(this);
+          con.consultarUsuario(jTextUser.getText(), jTextPass.getText());
     }//GEN-LAST:event_btnEntryActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
